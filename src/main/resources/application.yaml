@@ -1,0 +1,33 @@
+spring:
+  data:
+    rest:
+      basePath: /api
+  jpa:
+    open-in-view: false
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/todo?currentSchema=todo"
+    username: "user"
+    password: "P@55w0rd"
+    initialization-mode: never
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 21
+      autoCommit: false
+      connection-timeout: 1000
+      pool-name: "hikari-pool"
+    flyway:
+      enabled: true
+      locations: classpath:db/migration/dev
+      url: "jdbc:postgresql://localhost:5432/todo"
+      user: "user"
+      password: "P@55w0rd"
+      connect-retries: 3
+      schemas: "todo"
+    jpa:
+springdoc:
+  show-actuator: true
+  api-docs:
+    enabled: true
+    groups:
+      enabled: true
